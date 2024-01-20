@@ -12,7 +12,8 @@ import BeerItemList from '../../components/BeerItemList';
 
 const Loading = () => (
   <>
-    Loading... <Spinner className="ml-2 inline h-4 w-4" />
+    Loading...
+    <Spinner className="inline h-4 w-4 text-sky-700" />
   </>
 );
 
