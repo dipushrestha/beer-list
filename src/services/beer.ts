@@ -86,8 +86,9 @@ export const getAllBeers = async (count = 10): Promise<BeerRecord[]> => {
     const beersFromApi = await getBeersFromAPI(remainingToFetch, fromPage);
 
     if (beersFromApi.length > 0) {
-      localStorage.setItem('all-beers', JSON.stringify(beersFromApi));
-      return cachedBeers.concat(beersFromApi).slice(0, count);
+      const combinedBeers = cachedBeers.concat(beersFromApi);
+      localStorage.setItem('all-beers', JSON.stringify(combinedBeers));
+      return combinedBeers.slice(0, count);
     }
   } catch (error) {
     console.error(error);
