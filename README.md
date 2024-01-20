@@ -1,30 +1,50 @@
-# React + TypeScript + Vite
+## [Beer List](https://houzz-beer-list.netlify.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="https://houzz-beer-list.netlify.app" target="_blank">
+    <picture>
+      <img alt="Beer List" src="https://raw.githubusercontent.com/dipushrestha/beer-list/HEAD/public/beer.svg" width="350" height="70" style="max-width: 100%;">
+    </picture>
+  </a>
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  Browse beers at ease!
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+    <a href="https://app.netlify.com/sites/houzz-beer-list/deploys"><img src="https://api.netlify.com/api/v1/badges/40046b2d-ec2a-4795-bd47-8fdf48e4c018/deploy-status" alt="Latest Release" /></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
+</p>
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To run locally follow these example steps.
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- Node.js & pnpm installed.
+
+### Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/dipushrestha/beer-list.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install npm packages
+
+```sh
+pnpm install
+```
+
+### Usage
+
+1. Run the dev server
+
+```sh
+pnpm run dev
+```
+
+2. Open http://localhost:5173 in your browser
