@@ -11,8 +11,8 @@ import ErrorPage from './ErrorPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Root />} errorElement={<ErrorPage />}>
-      <Route index element={<Navigate to="/all-beers" />} />
+    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
+      <Route index element={<Navigate to="all-beers" />} />
       <Route path="all-beers" element={<AllBeers />} loader={allBeersLoader} />
       <Route
         path="my-beers"

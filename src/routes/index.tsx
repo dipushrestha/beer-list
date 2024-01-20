@@ -9,11 +9,11 @@ import { MyBeersAction } from './MyBeers';
 
 const navItems = [
   {
-    path: '/all-beers',
+    path: 'all-beers',
     label: 'All Beers',
   },
   {
-    path: '/my-beers',
+    path: 'my-beers',
     label: 'My Beers',
   },
 ];
