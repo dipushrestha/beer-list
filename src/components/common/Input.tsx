@@ -1,4 +1,5 @@
 import { HTMLInputTypeAttribute } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type InputProps = {
   name: string;
@@ -23,7 +24,10 @@ const Input = ({
       name={name}
       placeholder={placeholder}
       required
-      className={`rounded border border-zinc-400 px-3 py-3 placeholder:font-semibold ${className ?? ''}`}
+      className={twMerge(
+        'rounded border border-zinc-400 px-3 py-3 placeholder:font-semibold',
+        className,
+      )}
       rows={rows}
     ></textarea>
   ) : (
@@ -32,7 +36,10 @@ const Input = ({
       type={type ?? 'text'}
       placeholder={placeholder}
       required={required}
-      className={`rounded border border-zinc-400 px-3 py-3 placeholder:font-semibold ${className ?? ''}`}
+      className={twMerge(
+        'rounded border border-zinc-400 px-3 py-3 placeholder:font-semibold',
+        className,
+      )}
     />
   );
 
