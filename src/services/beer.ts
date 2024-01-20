@@ -23,13 +23,14 @@ export type BeerRecord = {
 
 const getBeersFromAPI = async (
   count = 10,
+  fromPage = 1,
   batchSize = 80,
 ): Promise<BeerRecord[]> => {
   const beerApiRecords: BeerApiRecord[] = [];
   try {
-    for (let page = 1; beerApiRecords.length < count; page++) {
+    for (; beerApiRecords.length < count; fromPage++) {
       const response = await fetch(
-        `https://api.punkapi.com/v2/beers?page=${page}&per_page=${batchSize}`,
+        `https://api.punkapi.com/v2/beers?page=${fromPage}&per_page=${batchSize}`,
       );
 
       const beerApiData: BeerApiRecord[] = await response.json();
@@ -71,13 +72,18 @@ const getBeersFromAPI = async (
 
 export const getAllBeers = async (count = 10): Promise<BeerRecord[]> => {
   try {
-    const cachedBeers = JSON.parse(localStorage.getItem('all-beers') ?? '[]');
+    const cachedBeers: BeerRecord[] = JSON.parse(
+      localStorage.getItem('all-beers') ?? '[]',
+    );
 
     if (cachedBeers.length >= count) {
       return cachedBeers.slice(0, count);
     }
 
-    const beersFromApi = await getBeersFromAPI(count - cachedBeers.length);
+    const remainingToFetch = count - cachedBeers.length;
+    const fromPage = Math.floor(cachedBeers.length / 80) + 1;
+
+    const beersFromApi = await getBeersFromAPI(remainingToFetch, fromPage);
 
     if (beersFromApi.length > 0) {
       localStorage.setItem('all-beers', JSON.stringify(beersFromApi));
